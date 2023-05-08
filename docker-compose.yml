@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+
+  mysql:
+    image: mysql
+    command: "--default-authentication-plugin=mysql_native_password"
+    restart: always
+    volumes:
+    - ./mysqldb:/var/lib/mysql 
+    environment:
+    - MYSQL_ROOT_PASSWORD=${PASSWORD}
+    - MYSQL_USER=${USERNAME}
+    - MYSQL_PASSWORD=${PASSWORD}
+    - MYSQL_DATABASE=${DATABASE}
+    ports: 
+      - "${PORT_MYSQL}:3306"
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+    - MYSQL_ROOT_PASSWORD=${PASSWORD}
+    - MYSQL_USER=${USERNAME}
+    - MYSQL_PASSWORD=${PASSWORD}
+    - MYSQL_DATABASE=${DATABASE}
+    - PMA_ARBITRARY=1
+    depends_on:
+    - mysql
+    ports: 
+    - ${PORT_MYSQL_ADMIN}:80
+
+  mongo:
+    image: mongo
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=${USERNAME}
+    - MONGO_INITDB_ROOT_PASSWORD=${PASSWORD}
+    - MONGO_INITDB_DATABASE=${DATABASE}
+    ports:
+    - ${PORT_MONGO}:27017
+
+  mongo-express:
+    image: mongo-express
+    environment:
+    - ME_CONFIG_MONGODB_SERVER=mongo
+    - ME_CONFIG_MONGODB_PORT=27017
+    - ME_CONFIG_MONGODB_ENABLE_ADMIN=false
+    - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+    - ME_CONFIG_MONGODB_AUTH_USERNAME=${USERNAME}
+    - ME_CONFIG_MONGODB_AUTH_PASSWORD=${PASSWORD}
+    - ME_CONFIG_BASICAUTH_USERNAME=${USERNAME}
+    - ME_CONFIG_BASICAUTH_PASSWORD=${PASSWORD}
+    depends_on:
+    - mongo
+    ports:
+    - ${PORT_MONGO_EXPRESS}:8081

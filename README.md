@@ -15,3 +15,12 @@ PORT_MONGO=27017
 PORT_MYSQL=3306
 PORT_MYSQL_ADMIN=8080
 ```
+
+## Ejecución
+
+```bash
+$ docker-compose up
+```
+
+Una vez que la pantalla no muestra mas logs, presionar `ctrl+c` para matar al proceso.
+La primera vez puede ser que falle el mongo-express porque mongo tarda en levantar, es una cuestión de docker, las siguientes ejecuciones debería levantar todo de forma normal.

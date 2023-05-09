@@ -31,6 +31,8 @@ services:
 
   mongo:
     image: mongo
+    volumes:
+    - ./mongodb:/data/db 
     environment:
     - MONGO_INITDB_ROOT_USERNAME=${USERNAME}
     - MONGO_INITDB_ROOT_PASSWORD=${PASSWORD}

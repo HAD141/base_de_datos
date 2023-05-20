@@ -1,0 +1,13 @@
+http://deletesql.com/viewforum.php?f=5&sid=6c9feb4feaf884c0445556d2b7be3eec
+http://deletesql.com/viewtopic.php?f=5&t=24
+[.lead]
+Ejercicio 1 +
+Supongamos que tenemos las siguientes entidades en un modelo relacional que gestiona la liga profesional de fútbol: EQUIPOS y JUGADORES. La cardinalidad de esta relación es 1 a N, puesto que un equipo tiene una plantilla de N jugadores mientras que un jugador milita en un solo equipo. ¿Es JUGADORES una entidad débil?
+
+[.lead]
+Ejercicio 2
+Supongamos que tenemos las siguientes entidades en un modelo relacional que gestiona las reparaciones del alumbrado público de una urbanización: FAROLAS y REPARACIONES. La cardinalidad de esta relación es 1 a N, puesto que a una farola se le realizan N reparaciones mientras que una reparación se practica a una farola. ¿Es REPARACIONES una entidad débil?
+
+[.lead]
+Ejercicio 3
+Supongamos que tenemos las siguientes entidades en un modelo relacional que gestiona la actividad de un almacén de distribución de generó: ARTICULOS y FAMILIAS. La cardinalidad de esta relación es 1 a N, puesto que una familia agrupa N artículos mientras que un artículo pertenece a una sola familia. ¿Es ARTICULOS una entidad débil?

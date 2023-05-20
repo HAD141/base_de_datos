@@ -1,0 +1,126 @@
+= Conectandose a los administradores
+
+== phpMyAdmin
+
+Ingresamos a un navegador e ingresamos la url http://127.0.0.1:8080[localhost:8080] o el puerto *8080* de la página play-with-docker.
+
+image::./images/conectandose/mysql_phpmyadmin_01.png[Pantalla de conexión]
+
+Los datos que debemos ingresar si utilizamos los contenedores son:
+
+NOTE: *Idioma o Language*: Español - Spanish +
+ *Servidor*: mysql +
+ *Usuario*: root +
+ *Contraseño*: adminadmin
+
+Luego se presina el botón *Iniciar sesión*.
+
+image::./images/conectandose/mysql_phpmyadmin_02.png[Pantalla de conexión]
+
+IMPORTANT: Si se utilizó la instalación manual debe ingresar los datos que se ingresaron durante la instalación de cada uno de ellos.
+
+En la sección izquierda tenemos las bases de datos que se encuentran en este motor de base de datos, para crear una nueva base de datos solo debemos presionar el botón *Nueva* y agregar el nombre. +
+Para seleccionar una base de datos para trabajar solo debemos hacer click sobre ella y nos va a mostrar todas las tablas que posee. +
+En la parte superior tenemos varias pestañas, las más importantes son:
+
+- Estructura: nos muestra todas las tablas creadas.
+- SQL: nos permite escribir consultas sql. Este es el mas importante y que vamos a utilizar. 
+- Exportar: exporta la base de datos.
+- Importar: importa una base de datos.
+- Diseñador: nos permite diseñar la base de datos de forma visual.
+
+[.lead]
+Pestaña SQL
+
+image::./images/conectandose/mysql_phpmyadmin_03.png[SQL]
+
+Para poder ejecutar la consulta se debe presionar el botón *Continuar* que aparece en el centro de la pantalla a la derecha.
+
+image::./images/conectandose/mysql_phpmyadmin_04.png[SQL]
+
+== Mongo Express
+
+Ingresamos a un navegador e ingresamos la url http://127.0.0.1:8081[localhost:8081]
+
+image::./images/conectandose/mongo_express_01.png[Pantalla de conexión]
+
+Los datos que debemos ingresar si utilizamos los contenedores son:
+
+NOTE: *Username*: admin +
+ *Password*: adminadmin
+
+Luego se presina el botón *Sing in*.
+
+image::./images/conectandose/mongo_express_02.png[Pantalla de conexión]
+
+IMPORTANT: Si se utilizó la instalación manual debe ingresar los datos que se ingresaron durante la instalación de cada uno de ellos.
+
+Esta pantalla muestra todas las bases de datos creadas. +
+Arriba a la derecha está un botón azul que me permite crear nuevas bases de datos *Create Database*. +
+Si presionamos el botón de verde de *view* podremos ver la base de datos con sus colecciones. 
+
+image::./images/conectandose/mongo_express_03.png[Pantalla de colecciones]
+
+En esta pantalla tenemos un nuevo botón azul *Create Collection* para crear nuevas colecciones y un nuevo botón verde para ver las colecciones *view*, también podremos importar o exportar la coleción.
+
+image::./images/conectandose/mongo_express_04.png[Pantalla de documentos]
+
+En la pantalla de documentos podemos:
+
+- Agregar: se realiza con el botón verde *New Document*
+
+- modificar: primero debo hacer click sobre el documento y esto me lleva a la pantalla de modificación.
+
+- buscar: botones *Simple* o *Advanced*.
+
+Vamos a buscar todos los documentos donde *cmdLine.systemLog.logAppend* sea *true*.
+
+image::./images/conectandose/mongo_express_05.png[Pantalla de documentos]
+
+image::./images/conectandose/mongo_express_06.png[Pantalla de documentos]
+
+== MySQL consola
+
+En el caso de tener instaldo por docker y docker-compose podemos utilizar la siguiente sentencia
+
+[source,bash]
+--
+$ docker-compose exec mysql mysql --user=root --password=adminadmin
+--
+
+image::./images/conectandose/mysql_01.png[MySQL]
+
+Ahora vamos a ejecutar los comandos para mostrar todas las bases de datos creadas, luego entramos a la base de datos *tutorial* y por último mostramos todas las colleciones de la base de datos tutorial.
+
+[source,javascript]
+--
+mysql> show databases;
+mysql> use tutorial;
+mysql> show tables;
+--
+
+Respuesta:
+
+image::./images/conectandose/mysql_02.png[MySQL]
+
+== MongoDB consola
+
+En el caso de tener instaldo por docker y docker-compose podemos utilizar la siguiente sentencia
+
+[source,bash]
+--
+$ docker-compose exec mongo mongosh mongodb://admin:adminadmin@localhost/admin
+--
+
+image::./images/conectandose/mongodb_01.png[MONGO]
+
+Ahora vamos a ejecutar los comandos para mostrar todas las bases de datos creadas, luego entramos a la base de datos *tutorial* y por último mostramos todas las colleciones de la base de datos tutorial.
+
+[source,javascript]
+--
+admin> show databases
+admin> use tutorial
+tutorial> show collections
+--
+
+image::./images/conectandose/mongodb_02.png[MONGO]

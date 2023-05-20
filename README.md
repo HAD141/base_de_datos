@@ -16,6 +16,14 @@ PORT_MYSQL=3306
 PORT_MYSQL_ADMIN=8080
 ```
 
+## Ejecución en background
+
+```bash
+$ docker-compose up -d
+# esperar 15 segundos, lo tenemos que hacer por el servicio de mongodb tarda en inicializar
+$ docker-compose up -d --no-deps mongo-express
+```
+
 ## Ejecución
 
 ```bash

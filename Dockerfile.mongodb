@@ -1,0 +1,16 @@
+FROM mongo:6.0
+
+LABEL "ugr.name"="Universidad del Gran Rosario"
+LABEL "ugr.university.course"="Licenciatura en Ciencia de Datos"
+LABEL "ugr.subject"="Herramientas de Software para el análisis de datos"
+LABEL "ugr.professor"="Gabriel Gosparo"
+LABEL "ugr.created.by"="Gabriel Gosparo"
+
+ENV MONGO_INITDB_ROOT_USERNAME=admin
+ENV MONGO_INITDB_ROOT_PASSWORD=adminadmin
+ENV MONGO_INITDB_DATABASE=had
+
+COPY mongodb_database/tutorial /opt/tutorial
+COPY mongodb_database/init-mongo.sh /docker-entrypoint-initdb.d/init-mongo.sh
+
+CMD ["mongod"]

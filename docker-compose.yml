@@ -3,11 +3,11 @@ version: "3.8"
 services:
 
   mysql:
-    image: mysql
+    image: lcdhad141/ugr_had_141_mysql:latest
     command: "--default-authentication-plugin=mysql_native_password"
     restart: always
-    volumes:
-    - ./mysqldb:/var/lib/mysql 
+    #volumes:
+    #- ./mysqldb:/var/lib/mysql 
     environment:
     - MYSQL_ROOT_PASSWORD=${PASSWORD}
     - MYSQL_USER=${USERNAME}
@@ -17,7 +17,8 @@ services:
       - "${PORT_MYSQL}:3306"
 
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin:5.2.1
+    restart: always
     environment:
     - MYSQL_ROOT_PASSWORD=${PASSWORD}
     - MYSQL_USER=${USERNAME}
@@ -30,22 +31,26 @@ services:
     - ${PORT_MYSQL_ADMIN}:80
 
   mongo:
-    image: mongo
-    volumes:
-    - ./mongodb:/data/db 
+    image: lcdhad141/ugr_had_141_mongodb:latest
+    restart: always
+    #volumes:
+    #- ./mongodb:/data/db 
     environment:
-    - MONGO_INITDB_ROOT_USERNAME=${USERNAME}
+    - ONGO_INITDB_ROOT_USERNAME=${USERNAME}
     - MONGO_INITDB_ROOT_PASSWORD=${PASSWORD}
     - MONGO_INITDB_DATABASE=${DATABASE}
     ports:
     - ${PORT_MONGO}:27017
 
   mongo-express:
-    image: mongo-express
+    image: mongo-express:0.54
+    restart: always
     environment:
+    - ME_CONFIG_MONGODB_ADMINUSERNAME=${USERNAME}
+    - ME_CONFIG_MONGODB_ADMINPASSWORD=${PASSWORD}
     - ME_CONFIG_MONGODB_SERVER=mongo
     - ME_CONFIG_MONGODB_PORT=27017
-    - ME_CONFIG_MONGODB_ENABLE_ADMIN=false
+    - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
     - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
     - ME_CONFIG_MONGODB_AUTH_USERNAME=${USERNAME}
     - ME_CONFIG_MONGODB_AUTH_PASSWORD=${PASSWORD}

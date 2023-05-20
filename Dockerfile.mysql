@@ -1,0 +1,17 @@
+FROM mysql:8-debian
+
+LABEL "ugr.name"="Universidad del Gran Rosario"
+LABEL "ugr.university.course"="Licenciatura en Ciencia de Datos"
+LABEL "ugr.subject"="Herramientas de Software para el análisis de datos"
+LABEL "ugr.professor"="Gabriel Gosparo"
+LABEL "ugr.created.by"="Gabriel Gosparo"
+
+ENV MYSQL_ROOT_PASSWORD=adminadmin
+ENV MYSQL_USER=admin
+ENV MYSQL_PASSWORD=admin
+ENV MYSQL_DATABASE=had
+
+COPY mysql_database/tutorial.sql /opt/tutorial.sql
+COPY mysql_database/tutorial.sql /docker-entrypoint-initdb.d/init-mysql.sql
+
+CMD ["mysqld"]

@@ -43,7 +43,9 @@ services:
     - ${PORT_MONGO}:27017
 
   mongo-express:
-    image: mongo-express:0.54
+    image: mongo-express:latest
+      #image: mongo-express:1.0.0.alpha # es la latest
+      #image: mongo-express:0.5.4 # no funciona
     restart: always
     environment:
     - ME_CONFIG_MONGODB_ADMINUSERNAME=${USERNAME}

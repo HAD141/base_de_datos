@@ -1,0 +1,64 @@
+= Práctica 10
+
+Bases de datos realaciones y no relaciones.
+
+[.lead]
+Para cada uno de los ejercicios crear los siguientes scripts para mysql y mongodb:
+
+- Crear la base de datos
+- Crear la/s tabla/s o collecciones
+- Insertar al menos 5 registros/documentos en cada tabla o collección
+- Realizar el update de 1 registro o documento
+- Realizar el delete de 1 registro o documento
+
+***
+
+[.lead]
+Ejercicio 1
+
+Una universidad desea diseñar una base de datos para gestionar su información académica. Los requerimientos incluyen el registro de estudiantes, cursos, profesores y las relaciones entre ellos. Un estudiante puede estar matriculado en múltiples cursos, un profesor puede impartir varios cursos, y cada curso puede tener múltiples estudiantes y un único profesor responsable.
+
+Agregar las siguientes consultas:
+
+- Listar los profesores a cargo de cada curso.
+- Listar los estudiantes por cursos y el profesor a cargo.
+
+[.lead]
+Ejercicio 2
+
+Un sistema de gestión de una biblioteca necesita ser diseñado. El sistema debe almacenar información sobre libros, autores, categorías de libros y préstamos. Los préstamos están asociados a un libro y un miembro de la biblioteca. Cada libro puede tener uno o varios autores y pertenecer a una categoría determinada.
+
+Agregar las siguientes consultas:
+
+- Contar cuantos libros tiene cada autor.
+- Contar cuantos libros por cada categoría existen en la biblioteca.
+
+[.lead]
+Ejercicio 3
+
+Una empresa de comercio electrónico quiere crear una base de datos para gestionar su inventario y pedidos. El inventario consta de productos, cada uno con un nombre, descripción y precio. Los pedidos se realizan por clientes y pueden contener múltiples productos. Se necesita registrar la información de los clientes, incluyendo su nombre, dirección de envío y detalles de contacto.
+
+Agregar las siguientes consultas:
+
+- Listar los datos completos de los pedidos y calculando el importe total de la línea del detalle del pedido (precio*cantidad)
+- Listar los datos completos de los pedidos y calcular el importe total del pedido. No mostrar el detalle de los productos del pedido.
+
+[.lead]
+Ejercicio 4
+
+Un sistema de gestión de un hospital requiere un diseño de base de datos. Se necesita almacenar información sobre pacientes, médicos, departamentos y citas. Cada paciente tiene un registro médico, y cada médico está asignado a un departamento en particular. Los pacientes pueden programar citas con los médicos, y cada cita tiene una fecha y hora específica.
+
+Agregar las siguientes consultas:
+
+- Contar cuantas citas tiene cada departamento
+- Calcular la cantidad de citas por día
+
+[.lead]
+Ejercicio 5
+
+Una compañía de alquiler de vehículos desea una base de datos para administrar su flota de automóviles y reservas. Los vehículos tienen información como marca, modelo, año y estado de disponibilidad. Los clientes pueden realizar reservas de vehículos para fechas específicas, y cada reserva está asociada a un cliente y un vehículo en particular.
+
+Agregar las siguientes consultas:
+
+- Listar los vehículos y sus detalles reservados en un rango de fechas.
+- Listar los vehículos más reservados y sus detalles.
